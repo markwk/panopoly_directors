@@ -11,15 +11,18 @@ function panopoly_directors_default_page_manager_pages() {
   $page = new stdClass();
   $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
-  $page->name = 'grl_organizers';
+  $page->name = 'panopoly_directors';
   $page->task = 'page';
-  $page->admin_title = 'GRL Organizers';
+  $page->admin_title = 'Directors';
   $page->admin_description = '';
-  $page->path = 'grl-organizers';
-  $page->access = array();
+  $page->path = 'directors';
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array(
     'type' => 'normal',
-    'title' => 'GRL Organizers',
+    'title' => 'Directors',
     'name' => 'main-menu',
     'weight' => '0',
     'parent' => array(
@@ -37,9 +40,9 @@ function panopoly_directors_default_page_manager_pages() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'page_grl_organizers_panel_context';
+  $handler->name = 'page_panopoly_directors_panel_context';
   $handler->task = 'page';
-  $handler->subtask = 'grl_organizers';
+  $handler->subtask = 'panopoly_directors';
   $handler->handler = 'panel_context';
   $handler->weight = 0;
   $handler->conf = array(
@@ -63,14 +66,14 @@ function panopoly_directors_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'GRL Organizers';
+  $display->title = 'Directors';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-1';
     $pane->panel = 'contentmain';
     $pane->type = 'views_panes';
-    $pane->subtype = 'panopoly_board_of_directors-grl_organizers';
+    $pane->subtype = 'panopoly_board_of_directors-panopoly_directors_pane';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -106,7 +109,7 @@ function panopoly_directors_default_page_manager_pages() {
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
-  $pages['grl_organizers'] = $page;
+  $pages['panopoly_directors'] = $page;
 
   return $pages;
 

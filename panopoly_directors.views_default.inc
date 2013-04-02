@@ -11,11 +11,11 @@ function panopoly_directors_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'grl_organizers';
+  $view->name = 'panopoly_directors_admin_view';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'GRL Organizers';
+  $view->human_name = 'Directors';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -46,7 +46,7 @@ function panopoly_directors_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'GRL Organizers';
+  $handler->display->display_options['fields']['title']['label'] = 'Directors';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Field: Draggableviews: Content */
@@ -82,8 +82,8 @@ function panopoly_directors_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['path'] = 'admin/reorder/organizers';
-  $export['grl_organizers'] = $view;
+  $handler->display->display_options['path'] = 'admin/reorder/directors';
+  $export['panopoly_directors_admin_view'] = $view;
 
   $view = new view();
   $view->name = 'panopoly_board_of_directors';
@@ -130,7 +130,7 @@ function panopoly_directors_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  /* Field: Field: Website */
+  /* Field: Content: Website */
   $handler->display->display_options['fields']['field_website']['id'] = 'field_website';
   $handler->display->display_options['fields']['field_website']['table'] = 'field_data_field_website';
   $handler->display->display_options['fields']['field_website']['field'] = 'field_website';
@@ -141,7 +141,7 @@ function panopoly_directors_views_default_views() {
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'draggableviews_structure';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
-  $handler->display->display_options['sorts']['weight']['draggableviews_setting_view'] = 'grl_organizers:page_1';
+  $handler->display->display_options['sorts']['weight']['draggableviews_setting_view'] = 'panopoly_directors_admin_view:page_1';
   $handler->display->display_options['sorts']['weight']['draggableviews_setting_new_items_bottom_list'] = 1;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -159,7 +159,7 @@ function panopoly_directors_views_default_views() {
   );
 
   /* Display: Content pane */
-  $handler = $view->new_display('panel_pane', 'Content pane', 'grl_organizers');
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panopoly_directors_pane');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['allow']['use_pager'] = 0;
   $handler->display->display_options['allow']['items_per_page'] = 0;
