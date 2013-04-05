@@ -31,5 +31,6 @@ features[variable][] = menu_parent_panopoly_officer
 features[variable][] = node_options_panopoly_officer
 features[variable][] = node_preview_panopoly_officer
 features[variable][] = node_submitted_panopoly_officer
-features[views_view][] = panopoly_directors_admin_view
+features[variable][] = panelizer_defaults_node_panopoly_officer
 features[views_view][] = panopoly_board_of_directors
+features[views_view][] = panopoly_directors_admin_view
